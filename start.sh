@@ -114,5 +114,13 @@ bunzip2 vera*.bz2
 tar -xvf vera*.tar
 ./veracrypt-1.21-setup-gui-x64
 rm vera*
+echo 'install Apache Drill'
+wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
+mv apache-dr* /opt/
+cd /opt/
+tar -xvzf /opt/apache-dril*.tar.gz
+rm /opt/apache-dril*.tar.gz
+cd $myworkingdir
+
 
 chown -R dobuke /opt
