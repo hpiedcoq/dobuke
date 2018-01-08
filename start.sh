@@ -70,6 +70,10 @@ wget https://github.com/gephi/gephi/releases/download/v0.9.2/gephi-0.9.2-linux.t
 tar -xvf gephi*.gz
 rm *.gz
 mv gephi* /opt/
+echo 'Download & install mysqlworkbench'
+wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-1ubuntu16.04-amd64.deb
+dpkg -i mysql*communi*.deb
+apt-get install -f -y
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
 apt-get install -y nodejs
