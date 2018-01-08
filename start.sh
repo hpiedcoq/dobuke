@@ -9,7 +9,7 @@ apt-get clean
 #get te current directory
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git
+apt-get install -y chromium-browser gftp vlc git mysqlworkbench
 echo 'install qgis'
 apt-get install -y qgis
 echo 'install Rstudio'
@@ -121,6 +121,10 @@ cd /opt/
 tar -xvzf /opt/apache-dril*.tar.gz
 rm /opt/apache-dril*.tar.gz
 cd $myworkingdir
+echo 'Install dbeaver'
+wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+dpkg -i dbeav*.deb
+apt-get install -y -f
 
 
 chown -R dobuke /opt
