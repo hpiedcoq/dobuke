@@ -71,10 +71,18 @@ tar -xvf gephi*.gz
 rm *.gz
 mv gephi* /opt/
 ##Installation of NodeJS related packages
-sudo apt-get install npm -y
-sudo apt-get install yarn -y
-sudo apt remove cmdtest -y
+curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
+apt-get install -y nodejs
+apt-get install npm -y
+apt-get install yarn -y
+apt remove cmdtest -y
 npm install -g bower
+#echo 'install Franchise'
+#cd /opt
+#git clone --depth 1 https://github.com/HVF/franchise.git
+#cd franchise
+#npm install
+#cd $myworkingdir
 echo 'Install Raw'
 git clone https://github.com/densitydesign/raw.git
 mv raw /opt/
@@ -86,6 +94,22 @@ cd $myworkingdir
 #Installation de plank, et Compton
 apt-get install -y compton plank
 #####Ajouter des choses ici
+#Theming like OSX
+git clone https://github.com/B00merang-Project/macOS-Sierra.git
+mv macOS-Sierra /usr/share/themes/
+cd $myworkingdir
+wget https://dl.opendesktop.org/api/files/downloadfile/id/1510321229/s/3840ba915d3106ed907b1e01185ae519/t/1515447662/macOS.tar.xz
+tar -xvf mac*.xz
+mv macOS* /usr/share/icons
+gtk-update-icon-cache /usr/share/icons/macOS
+xfconf-query -c xsettings -p /Net/ThemeName -s "macOS-Sierra"
+xfconf-query -c xsettings -p /Net/IconThemeName -s "macOS"
+xfconf-query -c xsettings -p /Gtk/FontName -s "Cantarell 10"
+xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorDisplayPort-1/workspace0/last-image --set /usr/share/themes/macOS-Sierra/Wallpaper.jpg
+mkdir ~/.config/autostart
+cp Plank/autostart ~/.config/autostart/plank.desktop
+cp Plank/compton.conf ~/.config
+cp Images /opt/ -r
 #####Fin de paragraphe
 echo 'install jq and xmlstarlet'
 apt-get install -y xmlstarlet jq
