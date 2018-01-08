@@ -1,5 +1,5 @@
 #!/bin/bash
-chown -R dobuke /opt
+
 #get te current directory
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
@@ -34,8 +34,14 @@ mv openrefine-linux-2.8 /opt/
 echo 'Download vib-bits for OpenRefine'
 wget http://data.bits.vib.be/hidden/g7dt6RjuUTU421dY2CwrGePGX/vib-bits.zip
 unzip vib-bits.zip
-if [ ! -d ~/.local/share/openrefine ] ; then mkdir ~/.local/share/openrefine fi
-if [ ! -d ~/.local/share/openrefine/extensions ] ; then mkdir ~/.local/share/openrefine/extensions fi
+if [ ! -d ~/.local/share/openrefine ] ;
+then 
+	mkdir ~/.local/share/openrefine 
+fi
+if [ ! -d ~/.local/share/openrefine/extensions ]
+then 
+	mkdir ~/.local/share/openrefine/extensions 
+fi
 mv vib-bits ~/.local/share/openrefine/extensions/
 wget http://data.bits.vib.be/hidden/g7dt6RjuUTU421dY2CwrGePGX/vib-bits-save-facets.zip
 unzip vib-bits-save-facets.zip
@@ -53,8 +59,8 @@ rm *.zip
 mv tabula* /opt/
 echo 'Download & install Gephi 0.9.2'
 wget https://github.com/gephi/gephi/releases/download/v0.9.2/gephi-0.9.2-linux.tar.gz
-unzip gephi*.zip
-rm *.zip
+tar -xvf gephi*.gz
+rm *.gz
 mv gephi* /opt/
 ##Installation of NodeJS related packages
 sudo apt-get install npm -y
@@ -71,3 +77,14 @@ cd $myworkingdir
 ##Jolification
 #Installation de plank, et Compton
 apt-get install -y compton plank
+#####Ajouter des choses ici
+#####Fin de paragraphe
+echo 'install jq and xmlstarlet'
+apt-get install -y xmlstarlet jq
+echo 'scapy'
+apt-get install scapy
+echo 'install Atom'
+wget https://atom.io/download/deb
+mv deb atom.deb
+dpkg -i atom*.deb
+chown -R dobuke /opt
