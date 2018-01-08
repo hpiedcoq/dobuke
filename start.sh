@@ -29,6 +29,8 @@ echo 'install csvkit'
 apt-get install -y python-dev python-pip python-setuptools build-essential
 pip install --upgrade setuptools
 pip install --upgrade csvkit
+echo 'install scrapy'
+pip install Scrapy
 echo 'install pdftotext'
 apt-get install -y poppler-utils
 echo 'Download & install default-JDK'
@@ -73,6 +75,15 @@ mv gephi* /opt/
 echo 'Download & install mysqlworkbench'
 wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-1ubuntu16.04-amd64.deb
 dpkg -i mysql*communi*.deb
+apt-get install -f -y
+rm *.deb
+echo 'Install Keypass2'
+apt-add-repository ppa:jtaylor/keepass -y
+sudo apt-get update
+sudo apt-get install keepass2 -y
+echo 'install Khartis'
+wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2.0.0/khartis_2.0.0_amd64.deb
+dpkg -i khart*.deb
 apt-get install -f -y
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
