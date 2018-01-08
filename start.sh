@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Clean initial update
+apt-get update
+apt-get upgrade -y
+apt-get autoremove
+apt-get clean
+
 #get te current directory
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
@@ -12,6 +18,7 @@ wget https://download1.rstudio.org/rstudio-xenial-1.1.383-amd64.deb
 dpkg -i rstud*.deb
 apt-get install -y -f
 apt-get install -y r-cran-curl r-cran-openssl r-cran-xml2 libxml2-dev libcurl4-openssl-dev libssl-dev
+rm rstudi* 
 echo 'Install pip'
 apt-get install -y python-pip python-dev build-essential
 pip install --upgrade pip
@@ -30,7 +37,8 @@ echo 'Download & install OpenRefine 2.8'
 wget https://github.com/OpenRefine/OpenRefine/releases/download/2.8/openrefine-linux-2.8.tar.gz
 tar -xvf openrefine-linux-2.8.tar.gz
 rm openrefine-linux-2.8.tar.gz
-mv openrefine-linux-2.8 /opt/
+mv openrefine* /opt/
+chmod +x /opt/openre*/refine
 echo 'Download vib-bits for OpenRefine'
 wget http://data.bits.vib.be/hidden/g7dt6RjuUTU421dY2CwrGePGX/vib-bits.zip
 unzip vib-bits.zip
@@ -87,4 +95,24 @@ echo 'install Atom'
 wget https://atom.io/download/deb
 mv deb atom.deb
 dpkg -i atom*.deb
+rm atom*.deb
+echo 'install data tools'
+apt-get install -y python3-pip
+wget https://github.com/clarkgrubb/data-tools/archive/master.zip
+unzip master.zip
+rm master.zip
+mv data-tools-master /opt
+cd /opt/data-tools-master
+./setup.py sdist
+pip3 install upgrade pip
+pip3 install dist/data-tools-0.1.0.tar.gz
+make install.c
+make install.man
+echo 'install veracrypt 1.21'
+wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
+bunzip2 vera*.bz2
+tar -xvf vera*.tar
+./veracrypt-1.21-setup-gui-x64
+rm vera*
+
 chown -R dobuke /opt
