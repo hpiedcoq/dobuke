@@ -85,6 +85,7 @@ echo 'install Khartis'
 wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2.0.0/khartis_2.0.0_amd64.deb
 dpkg -i khart*.deb
 apt-get install -f -y
+rm *.deb
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
 apt-get install -y nodejs
@@ -126,6 +127,10 @@ cp Plank/autostart ~/.config/autostart/plank.desktop
 cp Plank/compton.conf ~/.config
 cp Images /opt/ -r
 #####Fin de paragraphe
+#identities
+cp Identities/dobuke.default ~/.mozilla/firefox/ -r
+mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
+awk '{gsub(/Path=*.default/,"Path=dobuke.default")}' ~/.mozilla/firefox/profile.ini
 echo 'install jq and xmlstarlet'
 apt-get install -y xmlstarlet jq
 echo 'scapy'
