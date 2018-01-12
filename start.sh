@@ -1,5 +1,8 @@
 #!/bin/bash
 #This script will install all the useful packages on your fressh xubuntu install
+#regular packages are installed normally
+#aditional packages (no-debs) are installed in /opt
+
 #First we do a clean initial update, just in case
 apt-get update
 apt-get upgrade -y
