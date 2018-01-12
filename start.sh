@@ -11,7 +11,7 @@ apt-get clean
 #As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk
+apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest
 echo 'Install pip'
 apt-get install -y python-pip python-dev build-essential python-setuptools
 pip install --upgrade pip
@@ -85,8 +85,6 @@ apt-get install -f -y
 rm *.deb
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
-apt remove cmdtest -y
-npm install yarn
 npm install -g bower
 echo 'Install Raw'
 git clone https://github.com/densitydesign/raw.git
