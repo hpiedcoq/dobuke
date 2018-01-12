@@ -83,16 +83,30 @@ wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2
 dpkg -i khart*.deb
 apt-get install -f -y
 rm *.deb
-##Installation of NodeJS related packages
-curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
-npm install -g bower
-echo 'Install Raw'
-git clone https://github.com/densitydesign/raw.git
-mv raw /opt/
-cd /opt/raw
-bower install
-cp js/analytics.sample.js js/analytics.js
+echo 'install veracrypt 1.21'
+wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
+bunzip2 vera*.bz2
+tar -xvf vera*.tar
+./veracrypt-1.21-setup-gui-x64
+rm vera*
+echo 'install Apache Drill'
+wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
+mv apache-dr* /opt/
+cd /opt/
+tar -xvzf /opt/apache-dril*.tar.gz
+rm /opt/apache-dril*.tar.gz
 cd $myworkingdir
+echo 'Install dbeaver'
+wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
+dpkg -i dbeav*.deb
+apt-get install -y -f
+echo 'install jq and xmlstarlet'
+apt-get install -y xmlstarlet jq
+echo 'install Atom'
+wget https://atom.io/download/deb
+mv deb atom.deb
+dpkg -i atom*.deb
+rm atom*.deb
 ##Jolification
 #Installation de plank, et Compton
 apt-get install -y compton plank
@@ -116,14 +130,18 @@ cp Images /opt/ -r
 cp Identities/dobuke.default ~/.mozilla/firefox/ -r
 mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
 awk '{gsub(/Path=*.default/,"Path=dobuke.default")}' ~/.mozilla/firefox/profile.ini
-echo 'install jq and xmlstarlet'
-apt-get install -y xmlstarlet jq
-echo 'install Atom'
-wget https://atom.io/download/deb
-mv deb atom.deb
-dpkg -i atom*.deb
-rm atom*.deb
+##Installation of NodeJS related packages
+curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
+npm install -g bower
+echo 'Install Raw'
+git clone https://github.com/densitydesign/raw.git
+mv raw /opt/
+cd /opt/raw
+bower install
+cp js/analytics.sample.js js/analytics.js
+cd $myworkingdir
 echo 'install data tools'
+pip install --upgrade pip
 wget https://github.com/clarkgrubb/data-tools/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -134,23 +152,7 @@ pip3 install upgrade pip
 pip3 install dist/data-tools-0.1.0.tar.gz
 make install.c
 make install.man
-echo 'install veracrypt 1.21'
-wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
-bunzip2 vera*.bz2
-tar -xvf vera*.tar
-./veracrypt-1.21-setup-gui-x64
-rm vera*
-echo 'install Apache Drill'
-wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
-mv apache-dr* /opt/
-cd /opt/
-tar -xvzf /opt/apache-dril*.tar.gz
-rm /opt/apache-dril*.tar.gz
-cd $myworkingdir
-echo 'Install dbeaver'
-wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
-dpkg -i dbeav*.deb
-apt-get install -y -f
+
 
 #Reattribute the /opt directory to normal user
 chown -R dobuke /opt
