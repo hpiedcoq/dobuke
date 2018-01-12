@@ -1,15 +1,19 @@
 #!/bin/bash
-
-#Clean initial update
+#This script will install all the useful packages on your fressh xubuntu install
+#First we do a clean initial update, just in case
 apt-get update
 apt-get upgrade -y
 apt-get autoremove
 apt-get clean
-
-#get te current directory
+#As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git mysqlworkbench
+apt-get install -y chromium-browser gftp vlc git nodejs yarn npm python3-pip scapy poppler-utils default-jdk
+echo 'Install pip'
+apt-get install -y python-pip python-dev build-essential python-setuptools
+pip install --upgrade pip
+pip install --upgrade setuptools
+pip install --upgrade virtualenv
 echo 'install qgis'
 apt-get install -y qgis
 echo 'install Rstudio'
@@ -19,22 +23,12 @@ dpkg -i rstud*.deb
 apt-get install -y -f
 apt-get install -y r-cran-curl r-cran-openssl r-cran-xml2 libxml2-dev libcurl4-openssl-dev libssl-dev
 rm rstudi* 
-echo 'Install pip'
-apt-get install -y python-pip python-dev build-essential
-pip install --upgrade pip
-pip install --upgrade virtualenv
 echo 'install Eric IDE'
 apt-get install -y eric
 echo 'install csvkit'
-apt-get install -y python-dev python-pip python-setuptools build-essential
-pip install --upgrade setuptools
 pip install --upgrade csvkit
 echo 'install scrapy'
-pip install Scrapy
-echo 'install pdftotext'
-apt-get install -y poppler-utils
-echo 'Download & install default-JDK'
-apt-get install -y default-jdk
+pip install scrapy
 echo 'Download & install OpenRefine 2.8'
 wget https://github.com/OpenRefine/OpenRefine/releases/download/2.8/openrefine-linux-2.8.tar.gz
 tar -xvf openrefine-linux-2.8.tar.gz
@@ -88,17 +82,8 @@ apt-get install -f -y
 rm *.deb
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
-apt-get install -y nodejs
-apt-get install npm -y
-apt-get install yarn -y
 apt remove cmdtest -y
 npm install -g bower
-#echo 'install Franchise'
-#cd /opt
-#git clone --depth 1 https://github.com/HVF/franchise.git
-#cd franchise
-#npm install
-#cd $myworkingdir
 echo 'Install Raw'
 git clone https://github.com/densitydesign/raw.git
 mv raw /opt/
@@ -109,7 +94,6 @@ cd $myworkingdir
 ##Jolification
 #Installation de plank, et Compton
 apt-get install -y compton plank
-#####Ajouter des choses ici
 #Theming like OSX
 git clone https://github.com/B00merang-Project/macOS-Sierra.git
 mv macOS-Sierra /usr/share/themes/
@@ -126,22 +110,18 @@ mkdir ~/.config/autostart
 cp Plank/autostart ~/.config/autostart/plank.desktop
 cp Plank/compton.conf ~/.config
 cp Images /opt/ -r
-#####Fin de paragraphe
 #identities
 cp Identities/dobuke.default ~/.mozilla/firefox/ -r
 mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
 awk '{gsub(/Path=*.default/,"Path=dobuke.default")}' ~/.mozilla/firefox/profile.ini
 echo 'install jq and xmlstarlet'
 apt-get install -y xmlstarlet jq
-echo 'scapy'
-apt-get install scapy
 echo 'install Atom'
 wget https://atom.io/download/deb
 mv deb atom.deb
 dpkg -i atom*.deb
 rm atom*.deb
 echo 'install data tools'
-apt-get install -y python3-pip
 wget https://github.com/clarkgrubb/data-tools/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -170,5 +150,5 @@ wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
 dpkg -i dbeav*.deb
 apt-get install -y -f
 
-
+#Reattribute the /opt directory to normal user
 chown -R dobuke /opt
