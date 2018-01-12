@@ -1,11 +1,11 @@
 # DoBuKe
 We'll see where this leads us....
 
-#Welcome to DoBuKe
+## Welcome to DoBuKe
 
 http://www.dobuke.org
 
-#Install
+## Install
 
 First, create a Xubuntu fresh install, directly on your machine or in a VM
 install git :
@@ -32,6 +32,8 @@ sudo ./start.sh
 
 Grab a beer, it takes time...
 This will install all the packages.
+
+## To Do...
 
 
 
