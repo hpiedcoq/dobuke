@@ -7,7 +7,11 @@ http://www.dobuke.org
 
 ## Install
 
-First, create a Xubuntu fresh install, directly on your machine or in a VM
+First, create a Xubuntu fresh install, directly on your machine or in a VM.
+Ir's light, versatile and easy to install.
+
+Then : 
+
 install git :
 ```
 sudo apt-get install git
@@ -35,7 +39,10 @@ This will install all the packages.
 
 ## To Do...
 
+For the moment, this script installs packages and starts to tune the xfce environment.
+But plenty of details have to be automatized to finalize the installation (eye-candy, menus, etc...).
 
+Work in progress.
 
 
 
