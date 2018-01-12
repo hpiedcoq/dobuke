@@ -5,6 +5,8 @@ We'll see where this leads us....
 
 http://www.dobuke.org
 
+![DoBuKe screenshot](Images/Dobuke_pic.jpg "DoBuKe's interface")
+
 ## Install
 
 First, create a Xubuntu fresh install, directly on your machine or in a VM.
