@@ -1,5 +1,6 @@
 # DoBuKe
 We'll see where this leads us....
+![DoBuKe Logo](Images/dobuke.png "DoBuKe's logo")
 
 ## Welcome to DoBuKe
 
