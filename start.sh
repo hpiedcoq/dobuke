@@ -135,7 +135,6 @@ cp Images /opt/ -r
 #identities
 cp Identities/dobuke.default ~/.mozilla/firefox/ -r
 mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
-awk '{gsub(/Path=*.default/,"Path=dobuke.default")}' ~/.mozilla/firefox/profile.ini
 ##Installation of NodeJS related packages
 curl -sL https://deb.nodesource.com/setup_9.x |sudo -E bash -
 npm install -g bower
