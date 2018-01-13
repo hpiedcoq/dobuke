@@ -115,6 +115,7 @@ dpkg -i atom*.deb
 rm atom*.deb
 ##Jolification
 #Installation de plank, et Compton
+cp Images /opt/ -r
 apt-get install -y compton plank compton-conf
 #Theming like OSX
 git clone https://github.com/B00merang-Project/macOS-Sierra.git
@@ -133,7 +134,8 @@ mkdir ~/.config/autostart
 cp /usr/share/applications/plank.desktop autostart/
 chmod +x ~/.config/autostart plank.desktop
 cp Plank/compton.conf ~/.config
-cp Images /opt/ -r
+rm -r ~/.config/plank/dock1
+mv Planck/dock1 ~/.config/plank/
 #identities
 cp Identities/dobuke.default ~/.mozilla/firefox/ -r
 mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
