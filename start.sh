@@ -12,6 +12,10 @@ apt-get clean
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
 apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape
+echo 'install ripgrep'
+add-apt-repository -y ppa:x4121/ripgrep
+apt-get update
+apt-get install -y ripgrep
 echo 'Install pip'
 apt-get install -y python-pip python-dev build-essential python-setuptools
 pip install --upgrade pip
