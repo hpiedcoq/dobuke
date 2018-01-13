@@ -96,7 +96,7 @@ wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar
 mv apache-dr* /opt/
 cd /opt/
 tar -xvzf /opt/apache-dril*.tar.gz
-rm /opt/apache-dril*.tar.gz
+rm /opt/apache-dril*.tar.gz*
 cd $myworkingdir
 echo 'install Mr Data Conver'
 cd /opt
@@ -161,8 +161,8 @@ make install.man
 echo 'Install Miniconda'
 cd $myworkingdir
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-chmod +x Miniconda3-latest-Linux-x86_64.sh
-sh ./script.sh Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda*.sh
+sh ./Miniconda3-latest-Linux-x86_64.sh
 echo 'install veracrypt 1.21'
 wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
 bunzip2 vera*.bz2
