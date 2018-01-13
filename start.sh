@@ -11,7 +11,11 @@ apt-get clean
 #As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape
+apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape gdebi
+echo 'install pinguy builder'
+wget 'https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/pinguybuilder_4.3-8_all-beta.deb/download'
+gdebi --non-interactive pinguybuilder*.deb
+rm pinguybuilder*.deb
 echo 'install ripgrep'
 add-apt-repository -y ppa:x4121/ripgrep
 apt-get update
@@ -87,12 +91,6 @@ wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2
 dpkg -i khart*.deb
 apt-get install -f -y
 rm *.deb
-echo 'install veracrypt 1.21'
-wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
-bunzip2 vera*.bz2
-tar -xvf vera*.tar
-./veracrypt-1.21-setup-gui-x64
-rm vera*
 echo 'install Apache Drill'
 wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
 mv apache-dr* /opt/
@@ -165,5 +163,11 @@ cd $myworkingdir
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda3-latest-Linux-x86_64.sh
 sh ./script.sh Miniconda3-latest-Linux-x86_64.sh
+echo 'install veracrypt 1.21'
+wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
+bunzip2 vera*.bz2
+tar -xvf vera*.tar
+./veracrypt-1.21-setup-gui-x64
+rm vera*
 #Reattribute the /opt directory to normal user
 chown -R dobuke /opt
