@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Gephi
+Icon=/opt/Images/gephi.jpg
+Exec=/opt/gephi-0.9.2/bin/gephi
+Path=/home/dobuke/Documents
+NoDisplay=false
+Categories=X-XFCE;X-Xfce-Toplevel;menulibre-dobuke;
+StartupNotify=true
+Terminal=false

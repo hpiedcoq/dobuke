@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=OpenRefine
+Icon=/opt/Images/2000px-Google-refine-logo.svg.png
+Exec=/opt/openrefine-2.8/./refine
+NoDisplay=false
+Categories=menulibre-dobuke;
+StartupNotify=true
+Terminal=true

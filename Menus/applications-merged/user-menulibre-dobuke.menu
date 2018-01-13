@@ -1,0 +1,18 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+    "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<!-- Do not edit manually - generated and managed by xdg-desktop-menu -->
+<Menu>
+    <Name>Applications</Name>
+<Menu>
+    <Name>menulibre-dobuke</Name>
+    <Directory>menulibre-dobuke.directory</Directory>
+    <Include>
+        <Filename>menulibre-tabula.desktop</Filename>
+        <Filename>menulibre-gephi.desktop</Filename>
+        <Filename>menulibre-khartis.desktop</Filename>
+        <Filename>menulibre-openrefine.desktop</Filename>
+        <Filename>menulibre-raw.desktop</Filename>
+        <Filename>menulibre-apache-drill.desktop</Filename>
+    </Include>
+</Menu>
+</Menu>

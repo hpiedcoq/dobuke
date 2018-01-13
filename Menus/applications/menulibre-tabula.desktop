@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Tabula
+Icon=/opt/Images/tabula.png
+Exec=/opt/tabula/tabula.sh
+Path=/home/dobuke/Documents
+NoDisplay=false
+Categories=X-XFCE;X-Xfce-Toplevel;menulibre-dobuke;
+StartupNotify=true
+Terminal=true

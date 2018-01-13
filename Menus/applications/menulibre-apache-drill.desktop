@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Apache Drill
+Icon=/opt/Images/drill.png
+Exec=/opt/apache-drill-1.12.0/bin/drill-embedded
+NoDisplay=false
+Categories=X-XFCE;X-Xfce-Toplevel;menulibre-dobuke;
+StartupNotify=true
+Terminal=true
