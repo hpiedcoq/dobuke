@@ -137,6 +137,9 @@ chmod +x ~/.config/autostart plank.desktop
 cp Plank/compton.conf ~/.config
 rm -r ~/.config/plank/dock1
 mv Planck/dock1 ~/.config/plank/
+mv Menus/applications ~/.local/share
+mkdir ~/.config/menus
+mv Menus/* ~/.config/menus
 #identities
 cp Identities/dobuke.default ~/.mozilla/firefox/ -r
 mv ~/.mozilla/firefox/dobuke.default/profiles.ini ~/.mozilla/firefox/profiles.ini -f
