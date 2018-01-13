@@ -120,7 +120,7 @@ apt-get install -y compton plank
 git clone https://github.com/B00merang-Project/macOS-Sierra.git
 mv macOS-Sierra /usr/share/themes/
 cd $myworkingdir
-wget https://dl.opendesktop.org/api/files/downloadfile/id/1510321229/s/3840ba915d3106ed907b1e01185ae519/t/1515447662/macOS.tar.xz
+wget https://dl.opendesktop.org/api/files/downloadfile/id/1510321229/s/ab4f072005cc31a71f65f5cc3d8dd3e5/t/1515875181/u//macOS.tar.xz
 tar -xvf mac*.xz
 mv macOS* /usr/share/icons
 gtk-update-icon-cache /usr/share/icons/macOS
