@@ -11,7 +11,7 @@ apt-get clean
 #As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest
+apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape
 echo 'Install pip'
 apt-get install -y python-pip python-dev build-essential python-setuptools
 pip install --upgrade pip
