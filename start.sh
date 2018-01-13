@@ -13,7 +13,7 @@ myworkingdir=$(pwd)
 echo 'install some  must-have packages'
 apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape gdebi
 echo 'install pinguy builder'
-wget 'https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/pinguybuilder_4.3-8_all-beta.deb/download'
+wget https://freefr.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder_4.3-8_all-beta.deb
 gdebi --non-interactive pinguybuilder*.deb
 rm pinguybuilder*.deb
 echo 'install ripgrep'
