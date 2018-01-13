@@ -51,11 +51,11 @@ wget http://data.bits.vib.be/hidden/g7dt6RjuUTU421dY2CwrGePGX/vib-bits.zip
 unzip vib-bits.zip
 if [ ! -d ~/.local/share/openrefine ] ;
 then 
-	mkdir ~/.local/share/openrefine 
+    mkdir ~/.local/share/openrefine 
 fi
 if [ ! -d ~/.local/share/openrefine/extensions ]
 then 
-	mkdir ~/.local/share/openrefine/extensions 
+    mkdir ~/.local/share/openrefine/extensions 
 fi
 mv vib-bits ~/.local/share/openrefine/extensions/
 wget http://data.bits.vib.be/hidden/g7dt6RjuUTU421dY2CwrGePGX/vib-bits-save-facets.zip
@@ -115,7 +115,7 @@ dpkg -i atom*.deb
 rm atom*.deb
 ##Jolification
 #Installation de plank, et Compton
-apt-get install -y compton plank
+apt-get install -y compton plank compton-conf
 #Theming like OSX
 git clone https://github.com/B00merang-Project/macOS-Sierra.git
 mv macOS-Sierra /usr/share/themes/
@@ -128,8 +128,10 @@ xfconf-query -c xsettings -p /Net/ThemeName -s "macOS-Sierra"
 xfconf-query -c xsettings -p /Net/IconThemeName -s "macOS"
 xfconf-query -c xsettings -p /Gtk/FontName -s "Cantarell 10"
 xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorDisplayPort-1/workspace0/last-image --set /usr/share/themes/macOS-Sierra/Wallpaper.jpg
+xfconf-query -c xfwm4 -p /general/use_compositing -t bool -s false
 mkdir ~/.config/autostart
-cp Plank/autostart ~/.config/autostart/plank.desktop
+cp /usr/share/applications/plank.desktop autostart/
+chmod +x ~/.config/autostart plank.desktop
 cp Plank/compton.conf ~/.config
 cp Images /opt/ -r
 #identities
@@ -170,3 +172,6 @@ tar -xvf vera*.tar
 rm vera*
 #Reattribute the /opt directory to normal user
 chown -R dobuke /opt
+
+
+
