@@ -106,6 +106,7 @@ echo 'Install dbeaver'
 wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
 dpkg -i dbeav*.deb
 apt-get install -y -f
+rm dbeav*.deb
 echo 'install jq and xmlstarlet'
 apt-get install -y xmlstarlet jq
 echo 'install Atom'
@@ -166,6 +167,7 @@ cd $myworkingdir
 wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda*.sh
 sh ./Miniconda3-latest-Linux-x86_64.sh
+rm Mini*.sh
 echo 'install veracrypt 1.21'
 wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
 bunzip2 vera*.bz2
