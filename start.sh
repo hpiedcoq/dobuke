@@ -96,6 +96,10 @@ cd /opt/
 tar -xvzf /opt/apache-dril*.tar.gz
 rm /opt/apache-dril*.tar.gz
 cd $myworkingdir
+echo 'install Mr Data Conver'
+cd /opt
+git clone https://github.com/shancarter/mr-data-converter.git
+cd $myworkingdir
 echo 'Install dbeaver'
 wget https://dbeaver.jkiss.org/files/dbeaver-ce_latest_amd64.deb
 dpkg -i dbeav*.deb
