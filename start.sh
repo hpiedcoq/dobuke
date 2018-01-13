@@ -160,7 +160,10 @@ pip3 install upgrade pip
 pip3 install dist/data-tools-0.1.0.tar.gz
 make install.c
 make install.man
-
-
+echo 'Install Miniconda'
+cd $myworkingdir
+wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+chmod +x Miniconda3-latest-Linux-x86_64.sh
+sh ./script.sh Miniconda3-latest-Linux-x86_64.sh
 #Reattribute the /opt directory to normal user
 chown -R dobuke /opt
