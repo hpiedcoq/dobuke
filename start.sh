@@ -11,7 +11,8 @@ apt-get clean
 #As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape gdebi
+apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape gdebi wajig
+wajig install libgtk2.0-dev
 echo 'install pinguy builder'
 wget https://freefr.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder_4.3-8_all-beta.deb
 gdebi --non-interactive pinguybuilder*.deb
