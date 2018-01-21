@@ -132,6 +132,7 @@ xfconf-query -c xsettings -p /Gtk/FontName -s "Cantarell 10"
 xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitorDisplayPort-1/workspace0/last-image --set /usr/share/themes/macOS-Sierra/Wallpaper.jpg
 xfconf-query -c xfwm4 -p /general/use_compositing -t bool -s false
 mkdir ~/.config/autostart
+chown -R dobuke ~/.config
 cp /usr/share/applications/plank.desktop autostart/
 chmod +x ~/.config/autostart plank.desktop
 cp Plank/compton.conf ~/.config
