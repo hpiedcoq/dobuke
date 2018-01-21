@@ -150,7 +150,7 @@ echo 'Install Raw'
 git clone https://github.com/densitydesign/raw.git
 mv raw /opt/
 cd /opt/raw
-bower install
+bower install --allow-root
 cp js/analytics.sample.js js/analytics.js
 cd $myworkingdir
 echo 'install magic-wormhole'
