@@ -91,6 +91,15 @@ wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2
 dpkg -i khart*.deb
 apt-get install -f -y
 rm *.deb
+echo 'install geckodriver - selenium'
+wget https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz
+mv geck*.gz /opt
+cd /opt
+tar xvf geck*.gz
+rm ge*.gz
+chmod +x gecko*
+sudo mv gecko* /usr/local/bin
+cd $myworkingdir
 echo 'install Apache Drill'
 wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
 mv apache-dr* /opt/
