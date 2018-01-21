@@ -153,6 +153,8 @@ cd /opt/raw
 bower install
 cp js/analytics.sample.js js/analytics.js
 cd $myworkingdir
+echo 'install magic-wormhole'
+pip install magic-wormhole
 echo 'install data tools'
 pip install --upgrade pip
 wget https://github.com/clarkgrubb/data-tools/archive/master.zip
