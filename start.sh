@@ -1,5 +1,5 @@
 #!/bin/bash
-#This script will install all the useful packages on your fressh xubuntu install
+#This script will install all the useful packages on your fresh xubuntu install
 #regular packages are installed normally
 #aditional packages (no-debs) are installed in /opt
 
