@@ -11,10 +11,10 @@ apt-get clean
 #As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils default-jdk cmdtest inkscape gdebi wajig
+apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils openjdk-8-jdk cmdtest inkscape gdebi wajig
 wajig install libgtk2.0-dev
 echo 'install pinguy builder'
-wget https://freefr.dl.sourceforge.net/project/pinguy-os/ISO_Builder/pinguybuilder_4.3-8_all-beta.deb
+wget https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/pinguybuilder-menu-based_5.2-1_all.deb
 gdebi --non-interactive pinguybuilder*.deb
 rm pinguybuilder*.deb
 echo 'install ripgrep'
@@ -165,9 +165,13 @@ bower install --allow-root
 cp js/analytics.sample.js js/analytics.js
 cd $myworkingdir
 echo 'install magic-wormhole'
-pip install magic-wormhole
+pip3 install magic-wormhole
+echo 'twint'
+pip3 install twint
+echo 'install instaloader'
+pip3 install instaloader
 echo 'install data tools'
-pip install --upgrade pip
+pip3 install --upgrade pip
 wget https://github.com/clarkgrubb/data-tools/archive/master.zip
 unzip master.zip
 rm master.zip
@@ -184,8 +188,8 @@ wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 chmod +x Miniconda*.sh
 sh ./Miniconda3-latest-Linux-x86_64.sh
 rm Mini*.sh
-echo 'install veracrypt 1.21'
-wget https://launchpad.net/veracrypt/trunk/1.21/+download/veracrypt-1.21-setup.tar.bz2
+echo 'install veracrypt 1.24'
+wget https://launchpad.net/veracrypt/trunk/1.24-update3/+download/veracrypt-1.24-Update3-setup.tar.bz2
 bunzip2 vera*.bz2
 tar -xvf vera*.tar
 ./veracrypt-1.21-setup-gui-x64
