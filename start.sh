@@ -8,29 +8,26 @@ apt-get update
 apt-get upgrade -y
 apt-get autoremove
 apt-get clean
-#As some packages need to access to other directories, we need to know how ro comme back here. So we put the current directory in a variable
+#As some packages need to access to other directories, we need to know how to come back here. So we put the current directory in a variable
 myworkingdir=$(pwd)
 echo 'install some  must-have packages'
-apt-get install -y chromium-browser gftp vlc git nodejs npm python3-pip scapy poppler-utils openjdk-8-jdk cmdtest inkscape gdebi wajig
+apt-get install -y chromium-browser gftp ripgrep vlc git nodejs npm python3-pip scapy poppler-utils openjdk-8-jdk cmdtest inkscape gdebi wajig
 wajig install libgtk2.0-dev
 echo 'install pinguy builder'
 wget https://sourceforge.net/projects/pinguy-os/files/ISO_Builder/pinguybuilder-menu-based_5.2-1_all.deb
 gdebi --non-interactive pinguybuilder*.deb
 rm pinguybuilder*.deb
 echo 'install ripgrep'
-add-apt-repository -y ppa:x4121/ripgrep
-apt-get update
-apt-get install -y ripgrep
-echo 'Install pip'
-apt-get install -y python-pip python-dev build-essential python-setuptools
-pip install --upgrade pip
-pip install --upgrade setuptools
-pip install --upgrade virtualenv
+echo 'Install pip3'
+apt-get install -y python3-pip python3-dev build-essential python3-setuptools
+pip3 install --upgrade pip
+pip3 install --upgrade setuptools
+pip3 install --upgrade virtualenv
 echo 'install qgis'
 apt-get install -y qgis
 echo 'install Rstudio'
 apt-get install -y r-base r-base-dev curl 
-wget https://download1.rstudio.org/rstudio-xenial-1.1.383-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
 dpkg -i rstud*.deb
 apt-get install -y -f
 apt-get install -y r-cran-curl r-cran-openssl r-cran-xml2 libxml2-dev libcurl4-openssl-dev libssl-dev
@@ -42,9 +39,9 @@ pip install --upgrade csvkit
 echo 'install scrapy'
 pip install scrapy
 echo 'Download & install OpenRefine 2.8'
-wget https://github.com/OpenRefine/OpenRefine/releases/download/2.8/openrefine-linux-2.8.tar.gz
-tar -xvf openrefine-linux-2.8.tar.gz
-rm openrefine-linux-2.8.tar.gz
+wget https://github.com/OpenRefine/OpenRefine/releases/download/3.3-rc1/openrefine-linux-3.3-rc1.tar.gz
+tar -xvf openrefine-linux*.tat.gz
+rm openrefine-linux-*.tar.gz
 mv openrefine* /opt/
 chmod +x /opt/openre*/refine
 echo 'Download vib-bits for OpenRefine'
@@ -69,7 +66,7 @@ mv refine-stats-master/ refine-stats
 mv refine-stats ~/.local/share/openrefine/extensions/
 rm *.zip
 echo 'Download & install tabula 1.1.1'
-wget https://github.com/tabulapdf/tabula/releases/download/v1.1.1/tabula-win-1.1.1.zip
+wget https://github.com/tabulapdf/tabula/releases/download/v1.2.1/tabula-jar-1.2.1.zip
 unzip tabula*.zip
 rm *.zip
 mv tabula* /opt/
@@ -79,7 +76,7 @@ tar -xvf gephi*.gz
 rm *.gz
 mv gephi* /opt/
 echo 'Download & install mysqlworkbench'
-wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.10-1ubuntu16.04-amd64.deb
+wget https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.19-1ubuntu19.10_amd64.deb
 dpkg -i mysql*communi*.deb
 apt-get install -f -y
 rm *.deb
@@ -88,12 +85,12 @@ apt-add-repository ppa:jtaylor/keepass -y
 sudo apt-get update
 sudo apt-get install keepass2 -y
 echo 'install Khartis'
-wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2.0.0/khartis_2.0.0_amd64.deb
+wget https://github.com/AtelierCartographie/Khartis/releases/download/khartis-v2.1.0/khartis_2.1.0_amd64.deb
 dpkg -i khart*.deb
 apt-get install -f -y
 rm *.deb
 echo 'install geckodriver - selenium'
-wget https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-linux64.tar.gz
+wget https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.26-linux64.tar.gz
 mv geck*.gz /opt
 cd /opt
 tar xvf geck*.gz
@@ -102,7 +99,7 @@ chmod +x gecko*
 sudo mv gecko* /usr/local/bin
 cd $myworkingdir
 echo 'install Apache Drill'
-wget http://apache.mirrors.hoobly.com/drill/drill-1.12.0/apache-drill-1.12.0.tar.gz
+wget http://miroir.univ-lorraine.fr/apache/drill/drill-1.17.0/apache-drill-1.17.0.tar.gz
 mv apache-dr* /opt/
 cd /opt/
 tar -xvzf /opt/apache-dril*.tar.gz
